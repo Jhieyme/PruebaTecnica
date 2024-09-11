@@ -29,7 +29,7 @@ public class Producto implements Serializable {
     @Column
     private byte estado;
 
-    @OneToMany(mappedBy = "id_detalle", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
     private Set<DetalleVenta> detalle = new HashSet<>();
 
 }

@@ -36,6 +36,7 @@ public class Cliente implements Serializable{
 
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date create_at;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)

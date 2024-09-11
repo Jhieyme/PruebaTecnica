@@ -26,7 +26,7 @@ public class ClienteController {
     @PostMapping(path = "/crear")
     public ResponseEntity<String> postCliente(@RequestBody Cliente cliente){
         service.save(cliente);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Cliente creado correctamente");
+        return ResponseEntity.status(HttpStatus.CREATED).body("Cliente creado correctamente!");
     }
 
     @PutMapping(path = "/actualizar/{id}")
@@ -39,7 +39,7 @@ public class ClienteController {
             clienteEncontrado.setEmail(cliente.getEmail());
             clienteEncontrado.setCreate_at(cliente.getCreate_at());
             service.update(clienteEncontrado);
-            return ResponseEntity.status(HttpStatus.OK).body("Cliente actualizado correctamente");
+            return ResponseEntity.status(HttpStatus.OK).body("Cliente actualizado correctamente!");
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontraron resultados");
     }
@@ -49,7 +49,7 @@ public class ClienteController {
         Cliente clienteEncontrado = service.findById(id);
         if (clienteEncontrado != null){
             service.delete(id);
-            return ResponseEntity.status(HttpStatus.OK).body("Cliente eliminado correctamente");
+            return ResponseEntity.status(HttpStatus.OK).body("Cliente eliminado correctamente!");
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontraron resultados");
     }

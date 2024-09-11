@@ -25,6 +25,7 @@ public class Venta implements Serializable{
 
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date fecha;
 
     @Column
@@ -40,7 +41,7 @@ public class Venta implements Serializable{
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "id_detalle", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL)
     private Set<DetalleVenta> detalle = new HashSet<>();
 
 }
