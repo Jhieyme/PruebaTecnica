@@ -1,4 +1,5 @@
-Este proyecto contiene una serie de endpoints para gestionar `Clientes`, `Ventas`, `Productos` y `Detalles de Venta` en una API REST. A continuación se listan las principales peticiones que pueden ser utilizadas con Postman.
+Este proyecto contiene una serie de endpoints para gestionar `Clientes`, `Ventas`, `Productos` y `Detalles de Venta` en una API REST. 
+A continuación se listan las principales peticiones que pueden ser utilizadas con Postman.
 
 ## Instrucciones
 
