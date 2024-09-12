@@ -1,5 +1,6 @@
 package com.jhieyme.proyecto.controller;
 
+import com.jhieyme.proyecto.constants.MensajeConst;
 import com.jhieyme.proyecto.entity.Cliente;
 import com.jhieyme.proyecto.service.ClienteService;
 import lombok.RequiredArgsConstructor;
@@ -18,15 +19,15 @@ public class ClienteController {
     private final ClienteService service;
 
     @GetMapping(path = "/listar")
-    public ResponseEntity<List> getCliente(){
+    public ResponseEntity<Object> getCliente(){
         List<Cliente> clientes = service.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(clientes);
     }
 
     @PostMapping(path = "/crear")
-    public ResponseEntity<String> postCliente(@RequestBody Cliente cliente){
+    public ResponseEntity<Object> postCliente(@RequestBody Cliente cliente){
         service.save(cliente);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Cliente creado correctamente!");
+        return ResponseEntity.status(HttpStatus.CREATED).body("¡Cliente creado correctamente!");
     }
 
     @PutMapping(path = "/actualizar/{id}")
@@ -39,9 +40,9 @@ public class ClienteController {
             clienteEncontrado.setEmail(cliente.getEmail());
             clienteEncontrado.setCreate_at(cliente.getCreate_at());
             service.update(clienteEncontrado);
-            return ResponseEntity.status(HttpStatus.OK).body("Cliente actualizado correctamente!");
+            return ResponseEntity.status(HttpStatus.OK).body("¡Cliente actualizado correctamente!");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontraron resultados");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(MensajeConst.NO_ENC0NTRADO);
     }
 
     @DeleteMapping(path = "/eliminar/{id}")
@@ -49,9 +50,9 @@ public class ClienteController {
         Cliente clienteEncontrado = service.findById(id);
         if (clienteEncontrado != null){
             service.delete(id);
-            return ResponseEntity.status(HttpStatus.OK).body("Cliente eliminado correctamente!");
+            return ResponseEntity.status(HttpStatus.OK).body("¡Cliente eliminado correctamente!");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontraron resultados");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(MensajeConst.NO_ENC0NTRADO);
     }
 
 }

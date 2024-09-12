@@ -1,5 +1,6 @@
 package com.jhieyme.proyecto.controller;
 
+import com.jhieyme.proyecto.constants.MensajeConst;
 import com.jhieyme.proyecto.entity.DetalleVenta;
 import com.jhieyme.proyecto.service.DetalleService;
 import lombok.RequiredArgsConstructor;
@@ -41,7 +42,7 @@ public class DetalleController {
             detalleService.update(detalleEncontrado);
             return ResponseEntity.status(HttpStatus.OK).body("Detalle de venta actualizada correctamente");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontraron resultados");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(MensajeConst.NO_ENC0NTRADO);
     }
 
     @DeleteMapping(path = "/eliminarDetalle/{id}")
@@ -51,6 +52,6 @@ public class DetalleController {
             detalleService.delete(id);
             return ResponseEntity.status(HttpStatus.OK).body("Detalle de venta eliminada correctamente!");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontraron resultados");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(MensajeConst.NO_ENC0NTRADO);
     }
 }

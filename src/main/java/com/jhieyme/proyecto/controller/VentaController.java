@@ -1,5 +1,6 @@
 package com.jhieyme.proyecto.controller;
 
+import com.jhieyme.proyecto.constants.MensajeConst;
 import com.jhieyme.proyecto.entity.Venta;
 import com.jhieyme.proyecto.service.VentaService;
 import lombok.RequiredArgsConstructor;
@@ -41,7 +42,7 @@ public class VentaController {
             ventaService.update(ventaEncontrada);
             return ResponseEntity.status(HttpStatus.OK).body("Venta actualizada correctamente");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontraron resultados");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(MensajeConst.NO_ENC0NTRADO);
     }
 
     @DeleteMapping(path = "/eliminarVenta/{id}")
@@ -51,6 +52,6 @@ public class VentaController {
             ventaService.delete(id);
             return ResponseEntity.status(HttpStatus.OK).body("Venta eliminada correctamente!");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontraron resultados");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(MensajeConst.NO_ENC0NTRADO);
     }
 }
